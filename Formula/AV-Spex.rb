@@ -8,7 +8,10 @@ class AvSpex < Formula
   sha256 "141e4d60f8fe2153256778180389a107e878d8729790895bdf8a285dc51fbdab"
   license "GPL-3.0-only"
 
-
+  bottle do
+    sha256 cellar: :any_skip_relocation, 
+    arm64_sonoma: "c5b4c134f8bed73ef7623e70324885ad2c027906d047668a21957739d5b7a869"
+  end
 
   depends_on "python@3.10"
   depends_on "pyqt"
