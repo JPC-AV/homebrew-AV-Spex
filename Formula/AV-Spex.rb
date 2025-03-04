@@ -9,7 +9,7 @@ class AvSpex < Formula
   license "GPL-3.0-only"
 
   bottle do
-    root_url "https://github.com/JPC-AV/JPC_AV_videoQC/releases/download/v0.7.1"
+    root_url "https://github.com/JPC-AV/JPC_AV_videoQC/releases/download/"
     sha256 cellar: :any_skip_relocation, 
     arm64_sonoma: "3037da13af06a5db2144da41491716cfc487b86da45a7a723faf16311e05e0e5"
   end
