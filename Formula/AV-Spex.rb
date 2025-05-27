@@ -1,16 +1,15 @@
-
 class AvSpex < Formula
   include Language::Python::Virtualenv
 
   desc "Python project for NMAAHC media conservation lab"
-  homepage "https://github.com/JPC-AV/JPC_AV_videoQC"
-  url "https://github.com/JPC-AV/JPC_AV_videoQC/archive/refs/tags/v0.7.7.tar.gz"
-  sha256 "893a5b38f1a6c01fe14bb777928de98def683ddc4f40d5e12171d96d8226f087"
+  homepage "https://github.com/JPC-AV/video_qc_jpc_av"
+  url "https://github.com/JPC-AV/video_qc_jpc_av/archive/refs/tags/v0.7.8.5.tar.gz"
+  sha256 "11e90e8eefaf156a30643c08960aab6dbcf078135c5fcfba464b60a13d5085d5"
   license "GPL-3.0-only"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_sonoma: "bbba8fab0d84e9440438140a269821fb31cd086cc0b867d0c54a11aba14cdd1d"
-    root_url "https://github.com/JPC-AV/JPC_AV_videoQC/releases/download/v0.7.7"
+    root_url "https://github.com/JPC-AV/video_qc_jpc_av/releases/download/v0.7.8.5"
   end
 
   depends_on "python@3.10"
