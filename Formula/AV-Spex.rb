@@ -3,19 +3,15 @@ class AvSpex < Formula
 
   desc "Python project for NMAAHC media conservation lab"
   homepage "https://github.com/JPC-AV/video_qc_jpc_av"
-  url "https://github.com/JPC-AV/video_qc_jpc_av/archive/refs/tags/v0.7.8.5.tar.gz"
-  sha256 "11e90e8eefaf156a30643c08960aab6dbcf078135c5fcfba464b60a13d5085d5"
+  url "https://github.com/JPC-AV/video_qc_jpc_av/archive/refs/tags/v0.7.8.6.tar.gz"
+  sha256 "2a9177267d33dfb9061cb428a195dd3ae3ba93f5fac848f61b6b51af1b0b7680"
   license "GPL-3.0-only"
-
-  bottle do
-    root_url "https://github.com/JPC-AV/video_qc_jpc_av/releases/download/v0.7.8.5"
-  end
 
   depends_on "python@3.10"
   depends_on "pyqt"
   depends_on "qt@6"
   
-  resource "setuptools" do
+  resource "setuptools" do # needed for pyqt6 
     url "https://files.pythonhosted.org/packages/92/ec/089608b791d210aec4e7f97488e67ab0d33add3efccb83a056cbafe3a2a6/setuptools-75.8.0.tar.gz"
     sha256 "c5afc8f407c626b8313a86e10311dd3f661c6cd9c09d4bf8c15c0e11f9f2b0e6"
   end
@@ -50,17 +46,23 @@ class AvSpex < Formula
     sha256 "89e57d003a116303a34de6700862391367dd564222ab71f8531df70279fc0193"
   end
 
+
   def install
     venv = virtualenv_create(libexec, "python3")
     
+    # Install all Python dependencies including PyQt6-sip but excluding PyQt6
     venv.pip_install resources.reject { |r| r.name == "plotly" || r.name == "lxml" }
 
+    # Install plotly using direct pip command instead of venv.pip_install
     system libexec/"bin/python", "-m", "pip", "install", "--no-deps", "--only-binary", ":all:", "plotly==5.23.0"
 
+    # Install lxml without dependencies
     system libexec/"bin/python", "-m", "pip", "install", "--no-deps", "--only-binary", ":all:", "lxml==5.3.1"
 
+    # Install the package itself
     venv.pip_install_and_link buildpath
     
+    # Create executables
     bin.install_symlink libexec/"bin/av-spex"
     bin.install_symlink libexec/"bin/av-spex-gui"
   end
