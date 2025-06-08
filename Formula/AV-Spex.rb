@@ -9,6 +9,8 @@ class AvSpex < Formula
 
   bottle do
     root_url "https://github.com/JPC-AV/video_qc_jpc_av/releases/download/v0.7.9.3"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma: "fffdb1383f0183662d8e021ae568a29223057f55117a86d7e89b78a2c30e75b5"
+    sha256 cellar: :any_skip_relocation, ventura: "ed5450c619d08344c973827e71d1b06576a3279eeb5da85aaae485a3592dcc08"
   end
 
   depends_on "python@3.10"
