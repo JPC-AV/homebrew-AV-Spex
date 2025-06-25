@@ -7,11 +7,17 @@ class AvSpex < Formula
   sha256 "a6591386b3342a334731d540a62e36246fbb3bf09fe7f18c51b2fdc4ed48498a"
   license "GPL-3.0-only"
 
+  bottle do
+    root_url "https://github.com/JPC-AV/video_qc_jpc_av/releases/download/v0.8.0"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma: "c0660ba869cb35151a493426ab7c57cd0769d117df10cce819b57410566d3160"
+    sha256 cellar: :any_skip_relocation, ventura: "c3a614fb8f9651a6b0ae515680c8b16b14f490ad7f7ed14f5d3d07ab73122666"
+  end
+
   depends_on "python@3.10"
   depends_on "pyqt"
   depends_on "qt@6"
   
-  resource "setuptools" do # needed for pyqt6 
+  resource "setuptools" do
     url "https://files.pythonhosted.org/packages/92/ec/089608b791d210aec4e7f97488e67ab0d33add3efccb83a056cbafe3a2a6/setuptools-75.8.0.tar.gz"
     sha256 "c5afc8f407c626b8313a86e10311dd3f661c6cd9c09d4bf8c15c0e11f9f2b0e6"
   end
@@ -49,19 +55,14 @@ class AvSpex < Formula
   def install
     venv = virtualenv_create(libexec, "python3")
     
-    # Install all Python dependencies including PyQt6-sip but excluding PyQt6
     venv.pip_install resources.reject { |r| r.name == "plotly" || r.name == "lxml" }
 
-    # Install plotly using direct pip command instead of venv.pip_install
     system libexec/"bin/python", "-m", "pip", "install", "--no-deps", "--only-binary", ":all:", "plotly==5.23.0"
 
-    # Install lxml without dependencies
     system libexec/"bin/python", "-m", "pip", "install", "--no-deps", "--only-binary", ":all:", "lxml==5.3.1"
 
-    # Install the package itself
     venv.pip_install_and_link buildpath
     
-    # Create executables
     bin.install_symlink libexec/"bin/av-spex"
     bin.install_symlink libexec/"bin/av-spex-gui"
   end
