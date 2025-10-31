@@ -60,7 +60,7 @@ class AvSpex < Formula
 
     system libexec/"bin/python", "-m", "pip", "install", "--no-deps", "--only-binary", ":all:", "lxml==5.3.1"
 
-    system libexec/"bin/python", "-m", "pip", "install", "--no-deps", "PyQt6==6.9.1"
+    system libexec/"bin/python", "-m", "pip", "install", "PyQt6==6.9.1"
 
     venv.pip_install_and_link buildpath
     
