@@ -4,7 +4,7 @@ class AvSpex < Formula
   desc "Python project for NMAAHC media conservation lab"
   homepage "https://github.com/JPC-AV/video_qc_jpc_av"
   url "https://github.com/JPC-AV/video_qc_jpc_av/archive/refs/tags/v0.9.0.tar.gz"
-  sha256 "74b4e07e9732f615dc2f0585b00a5757899e0b45561684e3a48d42390a85b806"
+  sha256 "6433a3059d962dc8602b99ed395a44631b1930ece2760672a55a5453a4f1fd66"
   license "GPL-3.0-only"
 
   depends_on "python@3.13"
@@ -55,11 +55,13 @@ class AvSpex < Formula
     
     venv.pip_install resources.reject { |r| r.name == "plotly" || r.name == "lxml" || r.name == "PyQt6" }
 
-    system libexec/"bin/python", "-m", "pip", "install", "--no-deps", "--only-binary", ":all:", "opencv-python-headless==4.11.0.86"
-
     system libexec/"bin/python", "-m", "pip", "install", "--no-deps", "--only-binary", ":all:", "plotly==5.23.0"
 
     system libexec/"bin/python", "-m", "pip", "install", "--no-deps", "--only-binary", ":all:", "lxml==5.3.1"
+
+    system libexec/"bin/python", "-m", "pip", "install", "--no-deps", "--only-binary", ":all:", "numpy==2.2.6"
+
+    system libexec/"bin/python", "-m", "pip", "install", "--no-deps", "--only-binary", ":all:", "opencv-python-headless==4.11.0.86"
 
     system libexec/"bin/python", "-m", "pip", "install", "--only-binary", ":all:", "PyQt6==6.9.1", "PyQt6-Qt6==6.9.1"
 
