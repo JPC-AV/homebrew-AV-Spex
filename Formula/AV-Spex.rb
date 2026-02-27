@@ -4,7 +4,7 @@ class AvSpex < Formula
   desc "Python project for NMAAHC media conservation lab"
   homepage "https://github.com/JPC-AV/video_qc_jpc_av"
   url "https://github.com/JPC-AV/video_qc_jpc_av/archive/refs/tags/v0.9.0.tar.gz"
-  sha256 "6433a3059d962dc8602b99ed395a44631b1930ece2760672a55a5453a4f1fd66"
+  sha256 "b586bcb9d356d9cda426284f524f633aa48baeca98674332db576c4bbed86597"
   license "GPL-3.0-only"
 
   depends_on "python@3.13"
@@ -58,10 +58,14 @@ class AvSpex < Formula
     system libexec/"bin/python", "-m", "pip", "install", "--no-deps", "--only-binary", ":all:", "plotly==5.23.0"
 
     system libexec/"bin/python", "-m", "pip", "install", "--no-deps", "--only-binary", ":all:", "lxml==5.3.1"
-
+    
     system libexec/"bin/python", "-m", "pip", "install", "--no-deps", "--only-binary", ":all:", "numpy==2.2.6"
 
+    system libexec/"bin/python", "-m", "pip", "install", "--no-deps", "--only-binary", ":all:", "scipy==1.15.3"
+
     system libexec/"bin/python", "-m", "pip", "install", "--no-deps", "--only-binary", ":all:", "opencv-python-headless==4.11.0.86"
+
+    system libexec/"bin/python", "-m", "pip", "install", "--no-deps", "--only-binary", ":all:", "matplotlib==3.10.3"
 
     system libexec/"bin/python", "-m", "pip", "install", "--only-binary", ":all:", "PyQt6==6.9.1", "PyQt6-Qt6==6.9.1"
 
