@@ -4,7 +4,7 @@ class AvSpex < Formula
   desc "Python project for NMAAHC media conservation lab"
   homepage "https://github.com/JPC-AV/video_qc_jpc_av"
   url "https://github.com/JPC-AV/video_qc_jpc_av/archive/refs/tags/v0.9.0.tar.gz"
-  sha256 "0c7e73685c4f9bf5fbaa4e559b285d7b62fdcea79cb97356d4c2d8bf9c5634ab"
+  sha256 "74b4e07e9732f615dc2f0585b00a5757899e0b45561684e3a48d42390a85b806"
   license "GPL-3.0-only"
 
   depends_on "python@3.13"
@@ -54,6 +54,8 @@ class AvSpex < Formula
     venv = virtualenv_create(libexec, "python3.13")
     
     venv.pip_install resources.reject { |r| r.name == "plotly" || r.name == "lxml" || r.name == "PyQt6" }
+
+    system libexec/"bin/python", "-m", "pip", "install", "--no-deps", "--only-binary", ":all:", "opencv-python-headless==4.11.0.86"
 
     system libexec/"bin/python", "-m", "pip", "install", "--no-deps", "--only-binary", ":all:", "plotly==5.23.0"
 
