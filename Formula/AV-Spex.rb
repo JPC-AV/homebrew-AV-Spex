@@ -4,7 +4,7 @@ class AvSpex < Formula
   desc "Python project for NMAAHC media conservation lab"
   homepage "https://github.com/JPC-AV/video_qc_jpc_av"
   url "https://github.com/JPC-AV/video_qc_jpc_av/archive/refs/tags/v0.9.6.tar.gz"
-  sha256 "b534e41cebda1a3f3ddeee890998116d3f2f49cbab1398622589b2d9088240c3"
+  sha256 "fe7e189601001e7851cadec29592f1109bfc1609b9104facf21ee05d9a01adf1"
   license "GPL-3.0-only"
 
   depends_on "python@3.13"
