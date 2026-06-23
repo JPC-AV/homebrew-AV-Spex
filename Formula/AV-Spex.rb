@@ -4,7 +4,7 @@ class AvSpex < Formula
   desc "Python project for NMAAHC media conservation lab"
   homepage "https://github.com/JPC-AV/video_qc_jpc_av"
   url "https://github.com/JPC-AV/video_qc_jpc_av/archive/refs/tags/v1.1.0.tar.gz"
-  sha256 "3e64c51b0a5212442fb90cda7ff3ccc3c2079f36ed6f68dc7a01f9a5d4ec4fb4"
+  sha256 "35ad6866c2bce0485342e91af1c35d84774bbd1adb61f55495784c191b9342ee"
   license "GPL-3.0-only"
 
   depends_on "python@3.13"
@@ -111,10 +111,12 @@ class AvSpex < Formula
     venv.pip_install resources.reject { |r| 
       r.name == "plotly" || r.name == "lxml" || r.name == "PyQt6" || 
       r.name == "numpy" || r.name == "scipy" || r.name == "opencv-python-headless" || 
-      r.name == "matplotlib" || r.name == "scikit-image" 
+      r.name == "matplotlib" || r.name == "scikit-image" || r.name == "pillow" 
     }
 
     system libexec/"bin/python", "-m", "pip", "install", "--no-deps", "--only-binary", ":all:", "plotly==5.23.0"
+
+    system libexec/"bin/python", "-m", "pip", "install", "--no-deps", "--only-binary", ":all:", "pillow==12.2.0"
 
     system libexec/"bin/python", "-m", "pip", "install", "--no-deps", "--only-binary", ":all:", "lxml==5.3.1"
 
@@ -126,7 +128,7 @@ class AvSpex < Formula
 
     system libexec/"bin/python", "-m", "pip", "install", "--only-binary", ":all:", "matplotlib==3.10.3"
 
-    system libexec/"bin/python", "-m", "pip", "install", "--no-deps", "--only-binary", ":all:", "scikit-image==0.25.2"
+    system libexec/"bin/python", "-m", "pip", "install", "--no-deps", "--only-binary", ":all:", "scikit-image==0.26.0"
 
     system libexec/"bin/python", "-m", "pip", "install", "--only-binary", ":all:", "PyQt6==6.9.1", "PyQt6-Qt6==6.9.1"
 
