@@ -9,7 +9,7 @@ class AvSpex < Formula
 
   bottle do
     root_url "https://github.com/JPC-AV/video_qc_jpc_av/releases/download/v1.1.0"
-    sha256 arm64_sonoma: "0f62aeee97d6d8bc196afcd9e2be4c82f2ace2fffa88fe59ead99bc6654ac08f"
+    sha256 arm64_sonoma: "f234c6634004c271b4da25464b0a511aa76d018bf788e8c7bf02351d596e20b5"
   end
 
   depends_on "python@3.13"
