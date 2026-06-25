@@ -9,7 +9,7 @@ class AvSpex < Formula
 
   depends_on "python@3.13"
   depends_on "mkvtoolnix"
-  
+
   resource "setuptools" do
     url "https://files.pythonhosted.org/packages/92/ec/089608b791d210aec4e7f97488e67ab0d33add3efccb83a056cbafe3a2a6/setuptools-75.8.0.tar.gz"
     sha256 "c5afc8f407c626b8313a86e10311dd3f661c6cd9c09d4bf8c15c0e11f9f2b0e6"
@@ -64,27 +64,27 @@ class AvSpex < Formula
     url "https://files.pythonhosted.org/packages/49/ac/21a1f8aa3777f5658576777ea76bfb124b702c520bbe90edf4ae9915eafa/lazy_loader-0.5.tar.gz"
     sha256 "717f9179a0dbed357012ddad50a5ad3d5e4d9a0b8712680d4e687f5e6e6ed9b3"
   end
-  
+
   resource "networkx" do
     url "https://files.pythonhosted.org/packages/6a/51/63fe664f3908c97be9d2e4f1158eb633317598cfa6e1fc14af5383f17512/networkx-3.6.1.tar.gz"
     sha256 "26b7c357accc0c8cde558ad486283728b65b6a95d85ee1cd66bafab4c8168509"
   end
-  
+
   resource "pillow" do
     url "https://files.pythonhosted.org/packages/8c/21/c2bcdd5906101a30244eaffc1b6e6ce71a31bd0742a01eb89e660ebfac2d/pillow-12.2.0.tar.gz"
     sha256 "a830b1a40919539d07806aa58e1b114df53ddd43213d9c8b75847eee6c0182b5"
   end
-  
+
   resource "imageio" do
     url "https://files.pythonhosted.org/packages/b1/84/93bcd1300216ea50811cee96873b84a1bebf8d0489ffaf7f2a3756bab866/imageio-2.37.3.tar.gz"
     sha256 "bbb37efbfc4c400fcd534b367b91fcd66d5da639aaa138034431a1c5e0a41451"
   end
-  
+
   resource "tifffile" do
     url "https://files.pythonhosted.org/packages/6c/3e/695c7ab56be57814e369c1f38bc3f64b9dea0a83e867d00c0c9d613a9929/tifffile-2026.5.2.tar.gz"
     sha256 "21b10227ede8493814a34676774797f721f487e36cb0530e7c3bd882caa87f5a"
   end
-  
+
   resource "scikit-image" do
     url "https://files.pythonhosted.org/packages/a1/b4/2528bb43c67d48053a7a649a9666432dc307d66ba02e3a6d5c40f46655df/scikit_image-0.26.0.tar.gz"
     sha256 "f5f970ab04efad85c24714321fcc91613fcb64ef2a892a13167df2f3e59199fa"
@@ -108,10 +108,10 @@ class AvSpex < Formula
   def install
     venv = virtualenv_create(libexec, "python3.13")
 
-    venv.pip_install resources.reject { |r| 
-      r.name == "plotly" || r.name == "lxml" || r.name == "PyQt6" || 
-      r.name == "numpy" || r.name == "scipy" || r.name == "opencv-python-headless" || 
-      r.name == "matplotlib" || r.name == "scikit-image" || r.name == "pillow" 
+    venv.pip_install resources.reject { |r|
+      r.name == "plotly" || r.name == "lxml" || r.name == "PyQt6" ||
+      r.name == "numpy" || r.name == "scipy" || r.name == "opencv-python-headless" ||
+      r.name == "matplotlib" || r.name == "scikit-image" || r.name == "pillow"
     }
 
     system libexec/"bin/python", "-m", "pip", "install", "--no-deps", "--only-binary", ":all:", "plotly==5.23.0"
@@ -133,7 +133,7 @@ class AvSpex < Formula
     system libexec/"bin/python", "-m", "pip", "install", "--only-binary", ":all:", "PyQt6==6.9.1", "PyQt6-Qt6==6.9.1"
 
     venv.pip_install_and_link buildpath
-    
+
     bin.install_symlink libexec/"bin/av-spex"
     bin.install_symlink libexec/"bin/av-spex-gui"
   end
