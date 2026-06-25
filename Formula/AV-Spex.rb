@@ -7,6 +7,11 @@ class AvSpex < Formula
   sha256 "35ad6866c2bce0485342e91af1c35d84774bbd1adb61f55495784c191b9342ee"
   license "GPL-3.0-only"
 
+  bottle do
+    root_url "https://github.com/JPC-AV/video_qc_jpc_av/releases/download/v1.1.0"
+    sha256 arm64_sonoma: "0f62aeee97d6d8bc196afcd9e2be4c82f2ace2fffa88fe59ead99bc6654ac08f"
+  end
+
   depends_on "python@3.13"
   depends_on "mkvtoolnix"
 
