@@ -2,13 +2,13 @@ class AvSpex < Formula
   include Language::Python::Virtualenv
 
   desc "Python project for NMAAHC media conservation lab"
-  homepage "https://github.com/JPC-AV/video_qc_jpc_av"
-  url "https://github.com/JPC-AV/video_qc_jpc_av/archive/refs/tags/v1.1.3.tar.gz"
-  sha256 "f07fb7488f8105ef2e616d9680802de3ca2e36c01417c02915f65dbd47c6c247"
+  homepage "https://github.com/JPC-AV/AV-Spex"
+  url "https://github.com/JPC-AV/AV-Spex/archive/refs/tags/v1.1.3.tar.gz"
+  sha256 "e98d8e8d18de547e62313d3aaf9bc4f2ad1a5ddb153cb95355bca44d6e683d28"
   license "GPL-3.0-only"
 
   bottle do
-    root_url "https://github.com/JPC-AV/video_qc_jpc_av/releases/download/v1.1.3"
+    root_url "https://github.com/JPC-AV/AV-Spex/releases/download/v1.1.3"
     sha256 arm64_sonoma: "fd32ace3158b12cc6a3a7a905e77f06acf9ec45626ae3e8c4059de5d3582e8b2"
   end
 
