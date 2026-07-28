@@ -3,14 +3,9 @@ class AvSpex < Formula
 
   desc "Python project for NMAAHC media conservation lab"
   homepage "https://github.com/JPC-AV/AV-Spex"
-  url "https://github.com/JPC-AV/AV-Spex/archive/refs/tags/v1.3.2.tar.gz"
-  sha256 "e924d62e9be49744663d64dd0d9f6938f8e0714cb14962d9bd1c17a629e73056"
+  url "https://github.com/JPC-AV/AV-Spex/archive/refs/tags/v1.4.0.tar.gz"
+  sha256 "78efb6884f73ce3e7cc15c0ec079533191cc47f1f9c06f1e50f80ea408419315"
   license "GPL-3.0-only"
-
-  bottle do
-    root_url "https://github.com/JPC-AV/AV-Spex/releases/download/v1.3.2"
-    sha256 arm64_sonoma: "847e40384bcf94140623ab4785d12424ecf1e3b938c55c37c383f8615c030015"
-  end
 
   depends_on "python@3.13"
   depends_on "mkvtoolnix"
